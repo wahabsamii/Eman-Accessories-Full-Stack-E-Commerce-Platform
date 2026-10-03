@@ -3,7 +3,7 @@ import { forgotPasswordController, getAllUsers, loginController, registerControl
 import { isAdmin, requireSignIn } from "../middlewares/authMiddlewares.js";
 import { createCategoryController, getAllCategories } from "../controllers/categoryController.js";
 import upload from "../middlewares/upload.js";
-import { brainTreePaymentController, braintreeTokenController, createProductController, getProductController, productPhotoController } from "../controllers/productController.js";
+import { createProductController, getProductController, productPhotoController } from "../controllers/productController.js";
 
 const routes = express.Router();
 
@@ -38,9 +38,9 @@ routes.get("/product-photo/:pid", productPhotoController);
 
 //payments routes
 //token
-routes.get("/braintree/token", braintreeTokenController);
+// routes.get("/braintree/token", braintreeTokenController);
 
-//payments
-routes.post("/braintree/payment", requireSignIn, brainTreePaymentController);
+// //payments
+// routes.post("/braintree/payment", requireSignIn, brainTreePaymentController);
 
 export default routes;

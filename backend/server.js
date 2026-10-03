@@ -34,15 +34,17 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-
-
-mongoose.connect(process.env.DB_STRING).then(() => console.log('Database is connected successfully')).catch((e) => console.log(e));
-connectCloudinary();
-app.get("/", (req,res) => {
-    res.send("Eman Backend is working agin")
-});
 app.use(express.json())
+mongoose.connect(process.env.DB_STRING)
+  .then(() => console.log('Database is connected successfully'))
+  .catch((e) => console.log(e));
+
+  connectCloudinary();
+app.get("/", (req,res) => {
+    res.send("EMAN BACKEND IN WORKING!");
+});
+
+
 app.delete('/delete-product/:pid', async (req, res) => {
     const { pid } = req.params;
     {
@@ -63,8 +65,8 @@ app.use("/api/v1/product", productRoutes);
 app.use("/api/order", orderRoutes);
 
 
-app.listen(port, () => {
-    console.log('Server is running on port 9000')
-})
-// export default app;
+// app.listen(port, () => {
+//     console.log('Server is running on port 9000')
+// })
+export default app;
 
