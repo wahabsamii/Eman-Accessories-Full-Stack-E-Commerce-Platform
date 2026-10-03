@@ -6,8 +6,8 @@ import toast from "react-hot-toast";
 import Header from "../../components/Header";
 
 const Search = () => {
-  const [values, setValues] = useSearch();
-  const [cart, setCart, addToCart] = useCart();
+  const [values] = useSearch();
+  const [ addToCart] = useCart();
 
   return (
     <>
